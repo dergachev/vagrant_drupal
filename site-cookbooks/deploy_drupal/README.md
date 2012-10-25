@@ -19,9 +19,10 @@ Requirements
 
 Cookbooks: hosts::default, drush::head
 
-# NOTE: resource names must be unique, else strange behavior happens 
-# This explained why recipe[drupal::suzanne]#execute[add-drupal-db]#not_if was being applied to 
-# recipe[drupal::example]#execute[add-drupal-db]. See http://tickets.opscode.com/browse/CHEF-2812
+NOTE: resource names must be unique, else strange behavior happens.  This
+explained why recipe[drupal::suzanne]#execute[add-drupal-db]#not_if was being
+applied to recipe[drupal::example]#execute[add-drupal-db]. See
+http://tickets.opscode.com/browse/CHEF-2812
 
 Recipes
 =======
