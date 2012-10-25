@@ -1,15 +1,14 @@
 Vagrant::Config.run do |config|
-  config.vm.box = "precise64-customized"
   # config.vm.box = "precise64-customized"
+  config.vm.box = "precise64"
   config.vm.customize ["modifyvm", :id, "--memory", "2048"]
-  # config.vm.forward_port 8080, 9090
-  config.vm.forward_port 80, 9090
+  config.vm.forward_port 80, 8080
 
-  # enable nfs 
+  # consider enabling nfs for a speedup
   config.vm.share_folder "v-root", "/vagrant", ".", :nfs => false
 
   # ./tmp/vagrant_aptcache must already exist; inspired by https://gist.github.com/3798773
-  config.vm.share_folder("v-apt", "/var/cache/apt/archives", "./tmp/vagrant_aptcache")
+  # config.vm.share_folder("v-apt", "/var/cache/apt/archives", "./tmp/vagrant_aptcache")
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["site-cookbooks", "cookbooks"]
