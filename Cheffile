@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+#FIXME: all these should be replaced with the opscode cookbooks
+site 'http://community.opscode.com/api/v1'
+
+
+%w(php apache2 memcached mysql openssl apt build-essential).each do |cb| 
+  cookbook cb, 
+    :git => "http://git.drupal.org/project/vagrant.git", 
+    :path => "cookbooks/site-cookbooks/#{cb}", 
+    :ref => "7.x-1.x"
+  # cookbook "imagemagick"
+  # cookbook "varnish"
+end
+
+%w(drush xhprof).each do |cb| 
+  cookbook cb, 
+    :git => "http://git.drupal.org/project/vagrant.git", 
+    :path => "cookbooks/drupal-cookbooks/#{cb}", 
+    :ref => "7.x-1.x"
+  # cookbook "drush_make"
+  # cookbook "phpmyadmin" 
+  # cookbook "webgrind" 
+end
