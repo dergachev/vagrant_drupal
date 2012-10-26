@@ -6,7 +6,15 @@ site 'http://community.opscode.com/api/v1'
 
 cookbook "git"
 
-%w(php apache2 memcached mysql openssl apt build-essential).each do |cb| 
+%w(
+  php 
+  apache2 
+  memcached 
+  mysql 
+  openssl 
+  apt 
+  build-essential
+).each do |cb| 
   cookbook cb, 
     :git => "http://git.drupal.org/project/vagrant.git", 
     :path => "cookbooks/site-cookbooks/#{cb}", 
@@ -15,7 +23,10 @@ cookbook "git"
   # cookbook "varnish"
 end
 
-%w(drush xhprof).each do |cb| 
+%w(
+  drush 
+  xhprof
+).each do |cb| 
   cookbook cb, 
     :git => "http://git.drupal.org/project/vagrant.git", 
     :path => "cookbooks/drupal-cookbooks/#{cb}", 
