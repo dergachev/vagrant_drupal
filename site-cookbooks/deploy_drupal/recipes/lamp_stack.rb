@@ -22,6 +22,9 @@
 #force apt-get update
 include_recipe "apt"
 
+#probably need git
+include_recipe "git"
+
 #from apache2_mod_php
 include_recipe "apache2"
 include_recipe "apache2::mod_expires"

@@ -4,6 +4,7 @@
 #FIXME: all these should be replaced with the opscode cookbooks
 site 'http://community.opscode.com/api/v1'
 
+cookbook "git"
 
 %w(php apache2 memcached mysql openssl apt build-essential).each do |cb| 
   cookbook cb, 
