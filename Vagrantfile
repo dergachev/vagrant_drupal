@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant::Config.run do |config|
   # config.vm.box = "precise64-customized"
   config.vm.box = "precise64"
@@ -7,7 +10,7 @@ Vagrant::Config.run do |config|
   # consider enabling nfs for a speedup
   config.vm.share_folder "v-root", "/vagrant", ".", :nfs => false
 
-  # ./tmp/vagrant_aptcache must already exist; inspired by https://gist.github.com/3798773
+  # mkdir ./tmp/vagrant_aptcache before uncommenting; see https://gist.github.com/3798773
   # config.vm.share_folder("v-apt", "/var/cache/apt/archives", "./tmp/vagrant_aptcache")
 
   config.vm.provision :chef_solo do |chef|
