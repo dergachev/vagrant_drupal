@@ -22,7 +22,7 @@ Vagrant::Config.run do |config|
 
     chef.json.merge!({
       :deploy_drupal => { 
-        :apache_group => 'sysadmin', # defaults to www-data
+        :apache_group => 'vagrant', # defaults to www-data
         :sql_load_file => '/vagrant/db/fga.sql.gz', # load this SQL dump file
         :sql_post_load_script => '/vagrant/db/fga-sql-post-load.sh', # run this bash script after loading db
         :site_name => 'fga.vbox.local', # used for VHOST configuration, deployment directory, etc.
