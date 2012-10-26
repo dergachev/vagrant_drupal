@@ -43,7 +43,7 @@ include_recipe "memcached"
 include_recipe "mysql::server"
 
 #from drupal_dev
-include_recipe "drush::head"
+include_recipe "drush"
 include_recipe "xhprof"
 # include_recipe "drush_make"
 # include_recipe "phpmyadmin" # TODO Cookbook needs testing!

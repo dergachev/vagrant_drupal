@@ -19,8 +19,6 @@
 ##
 #
 
-include_recipe "drush::head" # required for drush sql-create
-
 MYSQL_ROOT_PASS = node[:mysql][:server_root_password]
 SQL_LOAD_FILE = node['deploy_drupal']['sql_load_file']
 SQL_POST_LOAD_SCRIPT = node['deploy_drupal']['sql_post_load_script']
@@ -72,7 +70,7 @@ apache_site "000-default" do
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
-# drush sql-create to create a database for the site (requires drush 6.0 HEAD)
+# drush sql-create to create a database for the site (requires drush 5.7)
 execute "add-drupal-db" do
   command "drush sql-create -y --db-su=root --db-su-pw=#{MYSQL_ROOT_PASS}"
   cwd DRUPAL_DEPLOY_DIR 
