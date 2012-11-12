@@ -48,7 +48,7 @@ This cookbook defines the following default attributes under node['default']['de
 <tr>
 <th> Attribute </th> <th> Default value </th> <th> Notes </th> </tr>
 <tr> <td> codebase_source_path </td>
-     <td> '' </td>
+     <td>  </td>
      <td> required attribute, absolute path to drupal folder containing index.php and settings.php </td>
 </tr>
 <tr> <td> site_name </td>
@@ -60,23 +60,23 @@ This cookbook defines the following default attributes under node['default']['de
      <td> can be same as codebase_source_path </td>
 </tr>
 <tr> <td> apache_port</td>
-     <td>  "80" </td>
+     <td>  80 </td>
      <td> should be consistent with  node['apache']['listen_ports'] </td>
 </tr>
 <tr> <td> apache_user </td>
-     <td>  "www-data" </td>
+     <td>  www-data </td>
      <td> user owning drupal codebase files </td>
 </tr>
 <tr> <td> apache_group </td>
-     <td>  "www-data" </td>
+     <td>  www-data </td>
      <td> group owning drupal codebase files </td>
 </tr>
 <tr> <td> sql_load_file </td>
-     <td>  "" </td>
+     <td>  </td>
      <td> absolute path to drupal SQL dump (can be .gz) </td>
 </tr>
 <tr> <td> sql_post_load_script </td>
-     <td>  "" </td>
+     <td>  </td>
      <td> absolute path to bash script to run after loading SQL dump </td>
 </tr>
 </table>
