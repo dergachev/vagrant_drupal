@@ -4,7 +4,7 @@
 Vagrant::Config.run do |config|
   # config.vm.box = "precise64-customized"
   config.vm.box = "precise64"
-  config.vm.customize ["modifyvm", :id, "--memory", "2048"]
+  config.vm.customize ["modifyvm", :id, "--memory", "512"]
   config.vm.forward_port 80, 8080
 
   # consider enabling nfs for a speedup
