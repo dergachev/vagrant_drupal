@@ -42,14 +42,16 @@ execute "validate-codebase-source-path-attribute" do
   command "test -d '#{DRUPAL_SOURCE_PATH}' && test -f #{DRUPAL_SOURCE_PATH}/index.php"
 end
 
-# drush make a default drupal site example
-bash "install-fga-drupal-site" do
+# Copies drupal codebase from DRUPAL_SOURCE_PATH to DRUPAL_DEPLOY_DIR
+bash "install-drupal-site" do
   # see http://superuser.com/a/367303 for cp syntax discussion
   # assumes target directory already exists
   code <<-EOH
     cp -Rf #{DRUPAL_SOURCE_PATH}/. '#{DRUPAL_DEPLOY_DIR}'
     chown -R #{APACHE_USER}:#{APACHE_GROUP} #{DRUPAL_DEPLOY_DIR}
   EOH
+  # If identical, `creates "index.php"` will prevent resource execution.
+  # This is great if you want to deploy directly to Vagrant shared folder
   creates "#{DRUPAL_DEPLOY_DIR}/index.php"
   notifies :restart, resources("service[apache2]"), :delayed
 end
