@@ -38,13 +38,13 @@ pkgs.each do |pkg|
   end
 end
 
-php_pear "pdo" do
-  action :install
-end
+# php_pear "PDO" do
+#   action :install
+# end
 
 # Install APC for increased performance. rfc1867 support also provides minimal
 # feedback for file uploads.  Requires pcre library.
-php_pear "apc" do
+php_pear "APC" do
   directives(:shm_size => "70M", :rfc1867 => 1)
   version "3.1.6" # TODO Somehow Chef PEAR/PECL provider causes debugging to be enabled on later builds.
   action :install
