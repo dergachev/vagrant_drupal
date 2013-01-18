@@ -72,6 +72,11 @@ apache_site "000-default" do
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
+execute "validate-drush-works" do
+  command "drush status"
+  cwd DRUPAL_DEPLOY_DIR
+end
+
 # drush sql-create to create a database for the site (requires drush 5.7)
 execute "add-drupal-db" do
   command "drush sql-create -y --db-su=root --db-su-pw=#{MYSQL_ROOT_PASS}"
